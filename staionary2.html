@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TechHeal — Phone Repair Experts</title>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&family=Quicksand:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ---------------------------------------------
+       TechHeal — Phone Repair Theme
+       Modern tech-inspired design with blues and teals
+       Clean, professional look with easy navigation
+       ---------------------------------------------*/
+
+    :root {
+      --bg: #F8FAFC;
+      /* soft off-white */
+      --primary: #3498DB;
+      /* professional blue */
+      --accent: #2ECC71;
+      /* success green */
+      --highlight: #FF6B6B;
+      /* attention red */
+      --dark: #2C3E50;
+      /* dark text */
+      --muted: #7F8C8D;
+      --card: #FFFFFF;
+      --radius: 16px;
+      --gap: 14px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: Nunito, Quicksand, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg) 0%, #F0F7FF 100%);
+      color: var(--dark);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Top tab-style navbar (floating) */
+    header {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 18px;
+      width: calc(100% - 32px);
+      max-width: 920px;
+      z-index: 40;
+      border-radius: 40px;
+      display: flex;
+      justify-content: center;
+      backdrop-filter: blur(6px);
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 8px 30px rgba(44, 62, 80, 0.1);
+      border: 1px solid rgba(44, 62, 80, 0.08);
+    }
+
+    nav.tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav.tabs a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: all .22s
+    }
+
+    nav.tabs a i {
+      font-size: 1rem
+    }
+
+    nav.tabs a:hover {
+      color: var(--dark);
+      transform: translateY(-3px)
+    }
+
+    nav.tabs a.active {
+      color: #fff;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      box-shadow: 0 8px 18px rgba(52, 152, 219, 0.3)
+    }
+
+    /* Page container (mobile-card style) */
+    .shell {
+      max-width: 520px;
+      margin: 110px auto 80px;
+      padding: 18px
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 30px rgba(44, 62, 80, 0.08);
+      overflow: hidden;
+      position: relative
+    }
+
+    /* Hero with tech shapes */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      align-items: center;
+      text-align: center;
+      padding: 6px 6px 18px
+    }
+
+    .brand-mark {
+      width: 84px;
+      height: 84px;
+      border-radius: 20px;
+      margin: 0 auto;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #fff;
+      font-size: 1.4rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 10px 30px rgba(52, 152, 219, 0.2)
+    }
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 4px;
+      color: var(--dark)
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin-bottom: 6px
+    }
+
+    /* decorative wave divider */
+    .wave {
+      display: block;
+      width: 100%;
+      height: 50px;
+      margin-top: -8px
+    }
+
+    /* Info strip */
+    .info-strip {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, var(--primary), #E8F4FD);
+      color: #fff;
+      font-weight: 600
+    }
+
+    /* Grid list for services & categories */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px
+    }
+
+    .chip {
+      background: linear-gradient(180deg, #fff, var(--card));
+      padding: 12px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(44, 62, 80, 0.06);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .chip:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(44, 62, 80, 0.1);
+    }
+
+    .chip i {
+      font-size: 1.1rem;
+      color: var(--primary)
+    }
+
+    /* Service details */
+    .service-detail {
+      display: none;
+      margin-top: 15px;
+      padding: 15px;
+      background: #F8F9FA;
+      border-radius: 12px;
+    }
+
+    .service-detail.active {
+      display: block;
+    }
+
+    .service-price {
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 8px;
+    }
+
+    .service-time {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+
+    /* Gallery grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px
+    }
+
+    .gal-item {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer
+    }
+
+    .gal-item img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+      transition: transform .35s
+    }
+
+    .gal-item:hover img {
+      transform: scale(1.06)
+    }
+
+    .gal-caption {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: .9rem
+    }
+
+    /* Contact small cards */
+    .contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 10px;
+      background: #F8F9FA;
+      border-radius: 12px;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 700
+    }
+
+    .contact-meta {
+      display: flex;
+      flex-direction: column
+    }
+
+    .muted-sm {
+      color: var(--muted);
+      font-size: .92rem
+    }
+
+    /* Stats cards */
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      padding: 12px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+
+    /* Device grid */
+    .device-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 15px 0;
+    }
+
+    .device-item {
+      text-align: center;
+      padding: 12px;
+      border-radius: var(--radius);
+      background: #F8F9FA;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .device-icon {
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .device-name {
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 0.85rem;
+    }
+
+    /* Offer banner */
+    .offer-banner {
+      background: linear-gradient(to right, var(--highlight), #FF9F9F);
+      color: white;
+      padding: 12px;
+      border-radius: var(--radius);
+      text-align: center;
+      margin: 15px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .offer-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+      position: relative;
+    }
+
+    .offer-desc {
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .offer-code {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 4px 8px;
+      border-radius: 16px;
+      font-weight: 700;
+      display: inline-block;
+      position: relative;
+      font-size: 0.85rem;
+    }
+
+    /* Warranty card */
+    .warranty-card {
+      background: linear-gradient(to right, var(--accent), #27AE60);
+      color: white;
+      padding: 16px;
+      border-radius: var(--radius);
+      text-align: center;
+      margin: 15px 0;
+      box-shadow: 0 8px 15px rgba(46, 204, 113, 0.3);
+    }
+
+    .warranty-title {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .warranty-desc {
+      margin-bottom: 12px;
+      font-size: 0.85rem;
+    }
+
+    /* Form elements */
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #E2E8F0;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+    }
+
+    textarea.form-control {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      color: white;
+      box-shadow: 0 4px 12px rgba(52, 152, 219, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(52, 152, 219, 0.35);
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(to right, #25D366, #128C7E);
+      color: white;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: #F0F7FF;
+      transform: translateY(-2px);
+    }
+
+    /* CTA buttons grid */
+    .cta-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    /* Map container */
+    .map-container {
+      height: 200px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Payment & QR */
+    .payments {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 6px
+    }
+
+    .pay-btn {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #fff, var(--card));
+      border: 1px solid rgba(44, 62, 80, 0.08);
+      font-weight: 700
+    }
+
+    .qr-box {
+      display: grid;
+      place-items: center;
+      padding: 12px
+    }
+
+    .qr-box img {
+      width: 140px;
+      height: 140px
+    }
+
+    /* Footer small */
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: .9rem;
+      padding: 12px
+    }
+
+    /* Lightbox modal for gallery */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      background: rgba(0, 0, 0, 0.7);
+      align-items: center;
+      justify-content: center;
+      z-index: 80
+    }
+
+    .lightbox img {
+      max-width: 92%;
+      max-height: 84%;
+      border-radius: 12px;
+      box-shadow: 0 18px 40px rgba(2, 8, 23, 0.6)
+    }
+
+    /* Top spacing adjustment for small screens */
+    @media (max-width:420px) {
+      .shell {
+        padding: 12px;
+        margin-top: 120px
+      }
+
+      .gal-item img {
+        height: 140px
+      }
+
+      header {
+        top: 12px
+      }
+
+      .brand-mark {
+        width: 72px;
+        height: 72px
+      }
+
+      nav.tabs {
+        gap: 4px;
+      }
+
+      nav.tabs a {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .device-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats-container {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-buttons {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top tab nav -->
+  <header>
+    <nav class="tabs" role="navigation" aria-label="Sections">
+      <a href="#home" data-target="home" class="active"><i class="fa-solid fa-house"></i>Home</a>
+      <a href="#about" data-target="about"><i class="fa-solid fa-info-circle"></i>About</a>
+      <a href="#services" data-target="services"><i class="fa-solid fa-tools"></i>Services</a>
+      <a href="#gallery" data-target="gallery"><i class="fa-regular fa-image"></i>Gallery</a>
+      <a href="#testimonials" data-target="testimonials"><i class="fa-solid fa-star"></i>Reviews</a>
+      <a href="#contact" data-target="contact"><i class="fa-solid fa-phone"></i>Contact</a>
+      <a href="#location" data-target="location"><i class="fa-solid fa-map-location-dot"></i>Location</a>
+      <a href="#share" data-target="share"><i class="fa-solid fa-share-nodes"></i>Share</a>
+    </nav>
+  </header>
+
+  <!-- Shell holds sections (mobile card stacked) -->
+  <main class="shell">
+
+    <!-- HOME -->
+    <section id="home" class="card">
+      <div class="hero">
+        <div class="brand-mark"><i class="fas fa-mobile-alt"></i></div>
+        <div class="title">TechHeal Phone Repair</div>
+        <div class="subtitle">Expert technicians, quality parts, quick service</div>
+      </div>
+
+      <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C200,80 400,0 720,40 C1040,80 1240,0 1440,40 L1440 80 L0 80 Z" fill="url(#g1)" />
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0" stop-color="#3498DB" />
+            <stop offset="1" stop-color="#2ECC71" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <div style="display:flex;gap:12px;align-items:center;margin-top:6px;">
+        <div style="flex:1">
+          <div class="info-strip">Screen Repair • Battery Replacement • Water Damage</div>
+        </div>
+      </div>
+
+      <div class="cta-buttons">
+        <a href="tel:+9100000000" class="btn btn-primary"><i class="fas fa-phone"></i>Call Now</a>
+        <a href="https://wa.me/0000000000" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+        <a href="#services" class="btn btn-secondary"><i class="fas fa-tools"></i>Services</a>
+        <a href="#location" class="btn btn-secondary"><i class="fas fa-map-marker-alt"></i>Directions</a>
+      </div>
+
+      <div class="warranty-card">
+        <div class="warranty-title">
+          <i class="fas fa-shield-alt"></i>
+          <span>90-Day Warranty</span>
+        </div>
+        <div class="warranty-desc">
+          All repairs come with a 90-day warranty for your peace of mind
+        </div>
+        <a href="#contact" class="btn"
+          style="background:white;color:#27AE60;padding:8px 16px;border-radius:20px;text-decoration:none;font-weight:700;">
+          <i class="fas fa-info-circle"></i> Learn More
+        </a>
+      </div>
+
+      <div class="social-links" style="display:flex;justify-content:center;gap:12px;margin-top:15px;">
+        <a href="#" class="social-icon"
+          style="width:40px;height:40px;border-radius:10px;background:#F0F7FF;display:flex;align-items:center;justify-content:center;color:var(--primary);text-decoration:none;"><i
+            class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"
+          style="width:40px;height:40px;border-radius:10px;background:#F0F7FF;display:flex;align-items:center;justify-content:center;color:var(--primary);text-decoration:none;"><i
+            class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"
+          style="width:40px;height:40px;border-radius:10px;background:#F0F7FF;display:flex;align-items:center;justify-content:center;color:var(--primary);text-decoration:none;"><i
+            class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-icon"
+          style="width:40px;height:40px;border-radius:10px;background:#F0F7FF;display:flex;align-items:center;justify-content:center;color:var(--primary);text-decoration:none;"><i
+            class="fab fa-google"></i></a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="card">
+      <h2>Our Story</h2>
+      <p class="muted-sm">Since 2015, TechHeal has been providing top-quality device repair services with certified
+        technicians who specialize in mobile devices.</p>
+
+      <div class="stats-container">
+        <div class="stat-card">
+          <div class="stat-number">8+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">6,200+</div>
+          <div class="stat-label">Devices Repaired</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">30 mins</div>
+          <div class="stat-label">Avg. Repair Time</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Satisfaction</div>
+        </div>
+      </div>
+
+      <div style="margin-top:15px;">
+        <div style="background:#F8F9FA;padding:12px;border-radius:12px;margin-bottom:10px;">
+          <h3 style="margin-top:0;">Expert Technicians</h3>
+          <p class="muted-sm">Our certified technicians specialize in mobile device repairs with years of experience.
+          </p>
+        </div>
+        <div style="background:#F8F9FA;padding:12px;border-radius:12px;margin-bottom:10px;">
+          <h3 style="margin-top:0;">Quality Parts</h3>
+          <p class="muted-sm">We use only premium quality parts and the latest repair equipment.</p>
+        </div>
+        <div style="background:#F8F9FA;padding:12px;border-radius:12px;">
+          <h3 style="margin-top:0;">Our Promise</h3>
+          <p class="muted-sm">Honest, transparent service with fair pricing and satisfaction guarantee.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:20px;">Devices We Repair</h3>
+      <div class="device-container">
+        <div class="device-item">
+          <div class="device-icon">
+            <i class="fab fa-apple"></i>
+          </div>
+          <div class="device-name">iPhone</div>
+        </div>
+        <div class="device-item">
+          <div class="device-icon">
+            <i class="fab fa-android"></i>
+          </div>
+          <div class="device-name">Android</div>
+        </div>
+        <div class="device-item">
+          <div class="device-icon">
+            <i class="fas fa-tablet-alt"></i>
+          </div>
+          <div class="device-name">Tablets</div>
+        </div>
+        <div class="device-item">
+          <div class="device-icon">
+            <i class="fas fa-laptop"></i>
+          </div>
+          <div class="device-name">Laptops</div>
+        </div>
+        <div class="device-item">
+          <div class="device-icon">
+            <i class="fas fa-gamepad"></i>
+          </div>
+          <div class="device-name">Consoles</div>
+        </div>
+        <div class="device-item">
+          <div class="device-icon">
+            <i class="fas fa-headphones"></i>
+          </div>
+          <div class="device-name">Accessories</div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:20px;">Business Hours</h3>
+      <div style="background:#F8F9FA;padding:12px;border-radius:12px;">
+        <p style="margin:5px 0;"><strong>Monday - Friday:</strong> 9:00 AM - 7:00 PM</p>
+        <p style="margin:5px 0;"><strong>Saturday:</strong> 10:00 AM - 5:00 PM</p>
+        <p style="margin:5px 0;"><strong>Sunday:</strong> 11:00 AM - 3:00 PM</p>
+        <p style="margin:5px 0;"><strong>Emergency Repairs:</strong> Available</p>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="card">
+      <h2>Our Services</h2>
+      <p class="muted-sm">Comprehensive device repair services for all makes and models</p>
+
+      <div class="offer-banner">
+        <div class="offer-title">SUMMER SPECIAL</div>
+        <div class="offer-desc">15% OFF on Screen Replacement this month</div>
+        <div class="offer-code">Code: SCREEN15</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="chip" onclick="toggleService('screen')">
+          <i class="fas fa-mobile-alt"></i>
+          <div style="margin-top:8px">Screen Replacement</div>
+          <div class="service-price">₹3,999</div>
+        </div>
+        <div class="chip" onclick="toggleService('battery')">
+          <i class="fas fa-battery-full"></i>
+          <div style="margin-top:8px">Battery Replacement</div>
+          <div class="service-price">₹2,499</div>
+        </div>
+        <div class="chip" onclick="toggleService('water')">
+          <i class="fas fa-tint"></i>
+          <div style="margin-top:8px">Water Damage Repair</div>
+          <div class="service-price">₹1,999</div>
+        </div>
+        <div class="chip" onclick="toggleService('charging')">
+          <i class="fas fa-plug"></i>
+          <div style="margin-top:8px">Charging Port</div>
+          <div class="service-price">₹1,499</div>
+        </div>
+        <div class="chip" onclick="toggleService('camera')">
+          <i class="fas fa-camera"></i>
+          <div style="margin-top:8px">Camera Repair</div>
+          <div class="service-price">₹2,299</div>
+        </div>
+        <div class="chip" onclick="toggleService('software')">
+          <i class="fas fa-code"></i>
+          <div style="margin-top:8px">Software Repair</div>
+          <div class="service-price">₹1,199</div>
+        </div>
+      </div>
+
+      <!-- Service Details -->
+      <div id="screen-detail" class="service-detail">
+        <h3>Screen Replacement</h3>
+        <p>Professional screen replacement using high-quality OEM or premium aftermarket parts. Includes calibration and
+          testing.</p>
+        <div class="service-time"><i class="fas fa-clock"></i> 45-60 mins</div>
+        <div class="service-price">₹3,999 <span
+            style="color:var(--highlight);text-decoration:line-through;font-size:0.9em;">₹3,399 with discount</span>
+        </div>
+        <a href="#contact" class="btn btn-primary" style="margin-top:10px;"><i class="fas fa-calendar-check"></i> Book
+          Now</a>
+      </div>
+
+      <div id="battery-detail" class="service-detail">
+        <h3>Battery Replacement</h3>
+        <p>Complete battery replacement with high-capacity batteries. Includes diagnostics and performance testing.</p>
+        <div class="service-time"><i class="fas fa-clock"></i> 30-45 mins</div>
+        <div class="service-price">₹2,499 <span
+            style="color:var(--highlight);text-decoration:line-through;font-size:0.9em;">₹2,249 with discount</span>
+        </div>
+        <a href="#contact" class="btn btn-primary" style="margin-top:10px;"><i class="fas fa-calendar-check"></i> Book
+          Now</a>
+      </div>
+
+      <div id="water-detail" class="service-detail">
+        <h3>Water Damage Repair</h3>
+        <p>Advanced water damage treatment including cleaning, corrosion removal, and component replacement.</p>
+        <div class="service-time"><i class="fas fa-clock"></i> 2-4 hours</div>
+        <div class="service-price">₹1,999 <span
+            style="color:var(--highlight);text-decoration:line-through;font-size:0.9em;">₹1,699 with discount</span>
+        </div>
+        <a href="#contact" class="btn btn-primary" style="margin-top:10px;"><i class="fas fa-calendar-check"></i> Book
+          Now</a>
+      </div>
+
+      <div id="charging-detail" class="service-detail">
+        <h3>Charging Port Repair</h3>
+        <p>Charging port repair or replacement including connector cleaning and testing.</p>
+        <div class="service-time"><i class="fas fa-clock"></i> 45-60 mins</div>
+        <div class="service-price">₹1,499 <span
+            style="color:var(--highlight);text-decoration:line-through;font-size:0.9em;">₹1,299 with discount</span>
+        </div>
+        <a href="#contact" class="btn btn-primary" style="margin-top:10px;"><i class="fas fa-calendar-check"></i> Book
+          Now</a>
+      </div>
+
+      <div id="camera-detail" class="service-detail">
+        <h3>Camera Repair</h3>
+        <p>Front or rear camera replacement with calibration and testing for optimal performance.</p>
+        <div class="service-time"><i class="fas fa-clock"></i> 30-45 mins</div>
+        <div class="service-price">₹2,299 <span
+            style="color:var(--highlight);text-decoration:line-through;font-size:0.9em;">₹1,999 with discount</span>
+        </div>
+        <a href="#contact" class="btn btn-primary" style="margin-top:10px;"><i class="fas fa-calendar-check"></i> Book
+          Now</a>
+      </div>
+
+      <div id="software-detail" class="service-detail">
+        <h3>Software Repair</h3>
+        <p>OS reinstalls, virus removal, boot loop fixes, and software troubleshooting.</p>
+        <div class="service-time"><i class="fas fa-clock"></i> 1-2 hours</div>
+        <div class="service-price">₹1,199 <span
+            style="color:var(--highlight);text-decoration:line-through;font-size:0.9em;">₹999 with discount</span></div>
+        <a href="#contact" class="btn btn-primary" style="margin-top:10px;"><i class="fas fa-calendar-check"></i> Book
+          Now</a>
+      </div>
+
+      <h3 style="margin-top:20px;">Brands We Service</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px;">
+        <div style="padding:10px;background:#F8F9FA;border-radius:10px;font-weight:700;font-size:0.8rem;">Apple</div>
+        <div style="padding:10px;background:#F8F9FA;border-radius:10px;font-weight:700;font-size:0.8rem;">Samsung</div>
+        <div style="padding:10px;background:#F8F9FA;border-radius:10px;font-weight:700;font-size:0.8rem;">Google</div>
+        <div style="padding:10px;background:#F8F9FA;border-radius:10px;font-weight:700;font-size:0.8rem;">OnePlus</div>
+        <div style="padding:10px;background:#F8F9FA;border-radius:10px;font-weight:700;font-size:0.8rem;">Xiaomi</div>
+        <div style="padding:10px;background:#F8F9FA;border-radius:10px;font-weight:700;font-size:0.8rem;">Oppo</div>
+        <div style="padding:10px;background:#F8F9FA;border-radius:10px;font-weight:700;font-size:0.8rem;">Vivo</div>
+        <div style="padding:10px;background:#F8F9FA;border-radius:10px;font-weight:700;font-size:0.8rem;">Realme</div>
+      </div>
+
+      <div style="text-align:center;margin-top:20px;">
+        <a href="#" class="btn btn-primary">
+          <i class="fas fa-download"></i> Download Price List
+        </a>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="card">
+      <h2>Our Workshop</h2>
+      <p class="muted-sm">Take a look at our facility and work</p>
+
+      <div class="gallery">
+        <div class="gal-item"
+          data-src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBob25lJTIwcmVwYWlyfGVufDB8fDB8fHww">
+          <img
+            src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBob25lJTIwcmVwYWlyfGVufDB8fDB8fHww"
+            alt="Phone repair workspace">
+          <div class="gal-caption">Workspace</div>
+        </div>
+        <div class="gal-item"
+          data-src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBob25lJTIwcmVwYWlyfGVufDB8fDB8fHww">
+          <img
+            src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBob25eJTIwcmVwYWlyfGVufDB8fDB8fHww"
+            alt="Technician repairing phone">
+          <div class="gal-caption">Technician</div>
+        </div>
+        <div class="gal-item"
+          data-src="https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBob25lJTIwcmVwYWlyfGVufDB8fDB8fHww">
+          <img
+            src="https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBob25lJTIwcmVwYWlyfGVufDB8fDB8fHww"
+            alt="Phone components">
+          <div class="gal-caption">Components</div>
+        </div>
+        <div class="gal-item"
+          data-src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHBob25lJTIwcmVwYWlyfGVufDB8fDB8fHww">
+          <img
+            src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHBob25lJTIwcmVwYWlyfGVufDB8fDB8fHww"
+            alt="Repair tools">
+          <div class="gal-caption">Tools</div>
+        </div>
+        <div class="gal-item"
+          data-src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDR8fHBob25lJTIwcmVwYWlyfGVufDB8fDB8fHww">
+          <img
+            src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDR8fHBob25lJTIwcmVwYWlyfGVufDB8fDB8fHww"
+            alt="Technician working">
+          <div class="gal-caption">Repair Process</div>
+        </div>
+        <div class="gal-item"
+          data-src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHBob25lJTIwcmVwYWlyfGVufDB8fDB8fHww">
+          <img
+            src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHBob25lJTIwcmVwYWlyfGVufDB8fDB8fHww"
+            alt="Microsoldering equipment">
+          <div class="gal-caption">Equipment</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="card">
+      <h2>Customer Reviews</h2>
+      <p class="muted-sm">What our customers say about our service</p>
+
+      <div style="background:#F8F9FA;padding:15px;border-radius:12px;margin-top:12px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div
+            style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;">
+            R</div>
+          <div>
+            <div style="font-weight:700;">Rahul Sharma</div>
+            <div style="color:var(--muted);font-size:0.85rem;">October 15, 2023</div>
+          </div>
+        </div>
+        <div style="color:#FFD700;margin:8px 0;">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p style="margin:0;">"Fixed my iPhone screen in under an hour! Perfect quality and much cheaper than the Apple
+          Store. Highly recommended!"</p>
+      </div>
+
+      <div style="background:#F8F9FA;padding:15px;border-radius:12px;margin-top:12px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div
+            style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;">
+            P</div>
+          <div>
+            <div style="font-weight:700;">Priya Mehta</div>
+            <div style="color:var(--muted);font-size:0.85rem;">September 28, 2023</div>
+          </div>
+        </div>
+        <div style="color:#FFD700;margin:8px 0;">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+        <p style="margin:0;">"My Samsung phone had water damage. They brought it back to life and saved all my data.
+          Very professional service."</p>
+      </div>
+
+      <div style="background:#F8F9FA;padding:15px;border-radius:12px;margin-top:12px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div
+            style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;">
+            A</div>
+          <div>
+            <div style="font-weight:700;">Amit Kumar</div>
+            <div style="color:var(--muted);font-size:0.85rem;">August 10, 2023</div>
+          </div>
+        </div>
+        <div style="color:#FFD700;margin:8px 0;">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p style="margin:0;">"I've been coming here for years. They always do a great job and stand behind their work.
+          My go-to place for all phone repairs."</p>
+      </div>
+
+      <button class="btn btn-primary" style="width:100%;margin-top:15px;">
+        <a href="https://www.google.com/search?q=techheal+reviews" style="color:inherit;text-decoration:none;">
+          <i class="fas fa-pen"></i> Write Review
+        </a>
+      </button>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card">
+      <h2>Contact Us</h2>
+      <p class="muted-sm">We'd love to hear from you</p>
+
+      <div class="contacts">
+        <div class="contact-row">
+          <div class="avatar"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="contact-meta">
+            <strong>Address</strong>
+            <div class="muted-sm">789, Tech Plaza, Electronics City, Bengaluru - 560100</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="avatar"><i class="fas fa-phone"></i></div>
+          <div class="contact-meta">
+            <strong>Phone</strong>
+            <div class="muted-sm">+91 00000 00000</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="avatar"><i class="fas fa-envelope"></i></div>
+          <div class="contact-meta">
+            <strong>Email</strong>
+            <div class="muted-sm">info@techheal.com</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="avatar"><i class="fas fa-clock"></i></div>
+          <div class="contact-meta">
+            <strong>Working Hours</strong>
+            <div class="muted-sm">Monday - Saturday: 9:00 AM - 7:00 PM</div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Schedule Repair</h3>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Your Name">
+      </div>
+      <div class="form-group">
+        <input type="tel" class="form-control" placeholder="Your Phone Number">
+      </div>
+      <div class="form-group">
+        <input type="date" class="form-control" placeholder="Date">
+      </div>
+      <div class="form-group">
+        <input type="time" class="form-control" placeholder="Time">
+      </div>
+      <div class="form-group">
+        <select class="form-control">
+          <option>Select Service</option>
+          <option>Screen Replacement</option>
+          <option>Battery Replacement</option>
+          <option>Water Damage Repair</option>
+          <option>Charging Port Repair</option>
+          <option>Camera Repair</option>
+          <option>Software Repair</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <select class="form-control">
+          <option>Device Type</option>
+          <option>iPhone</option>
+          <option>Samsung</option>
+          <option>Google Pixel</option>
+          <option>OnePlus</option>
+          <option>Xiaomi</option>
+          <option>Other Android</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" placeholder="Describe the issue"></textarea>
+      </div>
+      <button class="btn btn-primary" style="width:100%;">Schedule Repair</button>
+    </section>
+
+    <!-- LOCATION -->
+    <section id="location" class="card">
+      <h2>Find Us</h2>
+      <p class="muted-sm">Visit our repair center</p>
+
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.268775426168!2d77.63256717508038!3d13.007390987299905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1166cfc141c3%3A0x5fd789e5f2bf433!2sElectronics%20City%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1697462387657!5m2!1sen!2sin"
+          allowfullscreen="" loading="lazy"></iframe>
+      </div>
+
+      <div style="background:#F8F9FA;padding:12px;border-radius:12px;margin-top:15px;">
+        <h3 style="margin-top:0;">Directions</h3>
+        <p class="muted-sm">We are located in Electronics City, near the tech park. Look for our bright blue sign with
+          the phone logo.</p>
+      </div>
+
+      <div style="background:#F8F9FA;padding:12px;border-radius:12px;margin-top:10px;">
+        <h3 style="margin-top:0;">While You Wait</h3>
+        <p class="muted-sm">Comfortable waiting area with free WiFi, charging stations, and complimentary coffee while
+          we repair your device.</p>
+      </div>
+
+      <a href="https://maps.app.goo.gl/example" class="btn btn-primary" style="width:100%;margin-top:15px;">
+        <i class="fas fa-directions"></i> Get Directions
+      </a>
+    </section>
+
+    <!-- SHARE -->
+    <section id="share" class="card">
+      <h2>Share This Card</h2>
+      <p class="muted-sm">Share our digital visiting card with your friends and family.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:15px 0;">
+        <div style="padding:15px;background:#F8F9FA;border-radius:12px;text-align:center;cursor:pointer;"
+          onclick="shareVia('whatsapp')">
+          <div style="font-size:2rem;color:var(--primary);margin-bottom:8px;"><i class="fab fa-whatsapp"></i></div>
+          <p style="margin:0;">WhatsApp</p>
+        </div>
+        <div style="padding:15px;background:#F8F9FA;border-radius:12px;text-align:center;cursor:pointer;"
+          onclick="shareVia('facebook')">
+          <div style="font-size:2rem;color:var(--primary);margin-bottom:8px;"><i class="fab fa-facebook-f"></i></div>
+          <p style="margin:0;">Facebook</p>
+        </div>
+        <div style="padding:15px;background:#F8F9FA;border-radius:12px;text-align:center;cursor:pointer;"
+          onclick="shareVia('twitter')">
+          <div style="font-size:2rem;color:var(--primary);margin-bottom:8px;"><i class="fab fa-twitter"></i></div>
+          <p style="margin:0;">Twitter</p>
+        </div>
+        <div style="padding:15px;background:#F8F9FA;border-radius:12px;text-align:center;cursor:pointer;"
+          onclick="shareVia('email')">
+          <div style="font-size:2rem;color:var(--primary);margin-bottom:8px;"><i class="fas fa-envelope"></i></div>
+          <p style="margin:0;">Email</p>
+        </div>
+      </div>
+
+      <h3>Scan QR Code</h3>
+      <div class="qr-box">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://techheal.com/digital-card"
+          alt="qr">
+      </div>
+      <p class="muted-sm" style="text-align:center;">Scan to save our contact</p>
+
+      <h3>Copy Link</h3>
+      <div style="display:flex;margin:10px 0;">
+        <input type="text" id="profile-link" value="https://techheal.com/digital-card" readonly
+          style="flex:1;padding:10px;border:1px solid #E2E8F0;border-radius:12px 0 0 12px;border-right:none;">
+        <button onclick="copyLink()"
+          style="background:var(--primary);color:#fff;border:none;padding:0 15px;border-radius:0 12px 12px 0;cursor:pointer;font-weight:700;">Copy</button>
+      </div>
+    </section>
+
+    <footer>© TechHeal • Phone Repair Experts • Made with care</footer>
+  </main>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
+    <img src="" alt="preview">
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('nav.tabs a');
+    const sections = Array.from(document.querySelectorAll('main .card'));
+
+    // Tab navigation
+    tabs.forEach(t => {
+      t.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = t.getAttribute('href').replace('#', '');
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Intersection Observer for active tab
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          tabs.forEach(tb => tb.classList.toggle('active', tb.getAttribute('href') === '#' + id));
+        }
+      });
+    }, { threshold: 0.6 });
+
+    sections.forEach(s => observer.observe(s));
+
+    // Lightbox for gallery
+    const lightbox = document.getElementById('lightbox');
+    const lightImg = lightbox.querySelector('img');
+    document.querySelectorAll('.gal-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const src = item.dataset.src || item.querySelector('img').src;
+        lightImg.src = src;
+        lightbox.style.display = 'flex';
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+    lightbox.addEventListener('click', () => { lightbox.style.display = 'none'; lightbox.setAttribute('aria-hidden', 'true'); lightImg.src = ''; });
+
+
+    document.getElementById('copyLink').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('https://techheal.com/digital-card');
+        alert('Profile link copied to clipboard');
+      } catch (err) {
+        alert('Could not copy link');
+      }
+    });
+
+
+    function toggleService(service) {
+
+      document.querySelectorAll('.service-detail').forEach(detail => {
+        detail.classList.remove('active');
+      });
+
+      const detailElement = document.getElementById(service + '-detail');
+      if (detailElement) {
+        detailElement.classList.add('active');
+        detailElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function shareVia(platform) {
+      alert(`Sharing via ${platform} would be implemented here`);
+    }
+
+    function copyLink() {
+      const copyText = document.getElementById("profile-link");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+      alert("Link copied to clipboard: " + copyText.value);
+    }
+
+    // Form submission
+    document.querySelectorAll('.submit-btn').forEach(button => {
+      button.addEventListener('click', function (e) {
+        e.preventDefault();
+        alert('Thank you for your repair request! We will confirm shortly.');
+      });
+    });
+
+    document.addEventListener('touchstart', () => { });
+  </script>
+</body>
+
+</html>
